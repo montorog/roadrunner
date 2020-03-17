@@ -1,0 +1,50 @@
+<html>
+
+<body>
+<img src="ACMElogo.jpg" alt="ACME Logo" height="300" width="300" align="left">
+<img src="RRlogo.jpg" alt="RR Logo" height="300" width="300" align="middle">
+
+<p><span style="color: rgb(184, 49, 47);"><strong><span style="font-size:48px;">APP CLOUD CREATOR</span></strong></span></p>  
+<input type="text" id="app_name" value="Enter App name"/>
+<input type="text" id="template_type" value="Enter template type"/>
+<input type="button" value="Create App on Cloud" id="btnCreateApp" onclick="output()"/>
+
+
+
+<p> <span style="color: rgb(44, 130, 201); font-size: 24px;">powered by Road Runner Company</span></p>
+
+</body>
+    <script>
+        function output(){
+            //Data collector
+            var oData=[];
+            //Local Data object initialization 
+            var local={
+                app_name:document.getElementById("app_name").value,
+                template_type:document.getElementById("template_type").value,
+            };
+            //Push data in data collector
+            oData.push(local);
+            //Convert data in json format string
+            var output=JSON.stringify(oData).toString();
+            //Data output
+           document.write("<h1>"+ output +"</h1>")
+
+           download("testfile.txt",output)
+        }
+
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+
+CALL LAMBDA FUNCTION VIA POST - 
+    </script>
+</html>
+
